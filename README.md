@@ -4,7 +4,7 @@ A simple implement Mips processer in verilog
 Below are a circuit structure look like (picture from https://cseweb.ucsd.edu/~j2lau/cs141/single_cycle_cpu_datapath.png).
 
 <div style="text-align:center;">
-    <img src="https://cseweb.ucsd.edu/~j2lau/cs141/single_cycle_cpu_datapath.png" alt="Factorial Test Wave" />
+    <img src="https://cseweb.ucsd.edu/~j2lau/cs141" alt="Factorial Test Wave" />
 </div>
 
 
