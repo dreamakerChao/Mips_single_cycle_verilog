@@ -1,7 +1,17 @@
-## Mips_single_cycle_verilog
+# Mips_single_cycle_verilog
 A simple implement Mips processer in verilog
 
-#factorial
+##Below are a circuit structure look like (picture from https://cseweb.ucsd.edu/~j2lau/cs141/single_cycle_cpu_datapath.png).
+
+<div style="text-align:center;">
+    <img src="https://cseweb.ucsd.edu/~j2lau/cs141/single_cycle_cpu_datapath.png" alt="Factorial Test Wave" />
+</div>
+
+
+##factorial program
+this program use $a0 as argument of factorial, and the result in $v0
+souce code from : https://blueskyson.github.io/2020/04/05/mips-factorial-and-fibonacii/
+
 <div style="text-align:center;">
     <img src="https://github.com/dreamakerChao/Mips_single_cycle_verilog/blob/main/test_result_pic/factorial_test_wave.png" alt="Factorial Test Wave" />
 </div>
@@ -19,7 +29,9 @@ A simple implement Mips processer in verilog
 </div>
 
 
-#Hello world 
+##Hello world program
+This program can read the string "\nHello World!\n" in top of the data_memory and add the ascii code 1 and then store in data_memory from 1st -14st byte place.
+
 <div style="text-align:center; display:inline-block; margin-right:20px;">
     <img src="https://github.com/dreamakerChao/Mips_single_cycle_verilog/blob/main/test_result_pic/helloworld_test_wave.png" alt="Hello World Test Wave" />
 </div>
