@@ -33,7 +33,7 @@ souce code from : https://blueskyson.github.io/2020/04/05/mips-factorial-and-fib
 This program can read the string "\nHello World!\n" in top of the data_memory and add the ascii code 1 and then store in data_memory from 1st -14st byte place.
 
 <div style="text-align:center; display:inline-block; margin-right:20px;">
-    <img src="https://github.com/dreamakerChao/Mips_single_cycle_verilog/blob/main/test_result_pic/helloworld_test_wave.png" alt="Hello World Test Wave" width="400" height="300"/>
+    <img src="https://github.com/dreamakerChao/Mips_single_cycle_verilog/blob/main/test_result_pic/helloworld_test_wave.png" alt="Hello World Test Wave" style="max-width:100%; height:auto;"/>
 </div>
 
 <div style="text-align:center; display:inline-block; margin-right:20px;">
