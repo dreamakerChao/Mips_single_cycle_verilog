@@ -8,8 +8,8 @@ A simple implement Mips processer in verilog
 </div>
 
 
-##factorial program
-this program use $a0 as argument of factorial, and the result in $v0
+## factorial program
+This program use $a0 as argument of factorial, and the result in $v0
 souce code from : https://blueskyson.github.io/2020/04/05/mips-factorial-and-fibonacii/
 
 <div style="text-align:center;">
@@ -29,7 +29,7 @@ souce code from : https://blueskyson.github.io/2020/04/05/mips-factorial-and-fib
 </div>
 
 
-##Hello world program
+## Hello world program
 This program can read the string "\nHello World!\n" in top of the data_memory and add the ascii code 1 and then store in data_memory from 1st -14st byte place.
 
 <div style="text-align:center; display:inline-block; margin-right:20px;">
