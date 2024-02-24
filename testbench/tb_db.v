@@ -9,11 +9,11 @@ module tb_db;
 
     reg sw;
 
-    wire [1:0]state;
+    //wire [1:0]state;
 
     always #1 clk = ~clk;
 
-	debound_fsm m2(clk,reset,sw,db/*,state*/ );
+	db m2(.clk(clk),.sw(sw),.db_level(db), .db_tick() );
 
 initial
 	begin

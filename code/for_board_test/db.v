@@ -81,7 +81,7 @@ module db
                   state_next = one;
 
             end
-         default: state_next = zero;
+         //default: state_next = zero;
       endcase
    end
 

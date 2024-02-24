@@ -17,25 +17,11 @@ module stage_control (
         state<=next_state;
     end
 
-    always@(state)begin
-        case(state)
-            MEM:  next_state<=DELAY_MEM;
-            IF:  next_state<=DELAY_IF;
-            DELAY_IF:   next_state<=ID;
-            DELAY_MEM:  next_state<=WB;
-            
-            default: begin
-                if(state+1>3'd4)
-                    next_state<=3'd0;
-                else
-                    next_state<=state+1;
-            end
-        endcase
-    end
 
-    always@(state) begin
+    always@(*) begin
         case(state)
-            RESET: begin
+            RESET: begin 
+                next_state<=IF;       
                 reg_clk <= 1'b1; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b1;
@@ -44,6 +30,7 @@ module stage_control (
                 done_tick <= 1'b0;
             end
             IF: begin
+                next_state<=state+1;
                 reg_clk <= 1'b1; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b0;
@@ -52,6 +39,7 @@ module stage_control (
                 done_tick <= 1'b0;
             end
             ID: begin
+                next_state<=DELAY_IF;
                 reg_clk <= 1'b0; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b1;
@@ -60,6 +48,7 @@ module stage_control (
                 done_tick <= 1'b1;
             end
             EXE: begin
+                next_state<=state+1;
                 reg_clk <= 1'b0; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b1;
@@ -68,6 +57,7 @@ module stage_control (
                 done_tick <= 1'b0;
             end
             MEM: begin
+                next_state<=DELAY_MEM;
                 reg_clk <= 1'b0; 
                 data_clk <= 1'b1;
                 pc_clk <=1'b1;
@@ -77,6 +67,7 @@ module stage_control (
             end
             
             WB: begin
+                next_state<=0;
                 reg_clk <= 1'b1; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b1;
@@ -85,6 +76,7 @@ module stage_control (
                 done_tick <= 1'b0;
             end
             DELAY_IF: begin
+                next_state<=ID;
                 reg_clk <= 1'b1; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b0;
@@ -94,6 +86,8 @@ module stage_control (
             end
 
             DELAY_MEM: begin
+                next_state<=state+1;
+                next_state<=WB;
                 reg_clk <= 1'b0; 
                 data_clk <= 1'b0;
                 pc_clk <=1'b1;
