@@ -7,6 +7,9 @@ Below are a circuit structure look like (picture from https://cseweb.ucsd.edu/~j
     <img src="https://github.com/dreamakerChao/Mips_single_cycle_verilog/blob/main/single_cycle_cpu_datapath.png" alt="Factorial Test Wave" />
 </div>
 
+![image](https://github.com/user-attachments/assets/70969a6a-df41-4c1d-b4a1-11d282f3ddc5)
+
+
 
 ## factorial program
 This program use $a0 as argument of factorial, and the result in $v0
