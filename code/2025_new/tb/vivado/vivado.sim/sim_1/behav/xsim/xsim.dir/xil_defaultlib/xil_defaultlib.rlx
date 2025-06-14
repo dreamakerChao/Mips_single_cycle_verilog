@@ -1,0 +1,9 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_encode.vh,1749886887,verilog,,,,,,,,,,,,
+D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v,1749911162,verilog,,D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v,D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_encode.vh;D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Mips32_ISATbl.vh,Control_unit,,,../../../../../../,,,,,
+D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Mips32_ISATbl.vh,1749888209,verilog,,,,,,,,,,,,
+D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v,1749910960,verilog,,,,control_tb,,,../../../../../../,,,,,
+D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,

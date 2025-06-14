@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_tb

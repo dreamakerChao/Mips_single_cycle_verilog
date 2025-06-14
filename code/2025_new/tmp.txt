@@ -30,6 +30,33 @@
 `define FN_SLT           6'h2A // funct 0x2A Set on less than (signed)
 `define FN_SLTU          6'h2B // funct 0x2B Set on less than (unsigned)
 
+J
+JAL
+BEQ
+BNE
+BLEZ
+BGTZ
+ADDI
+ADDIU
+SLTI
+SLTIU
+ANDI
+ORI
+XORI
+LUI
+LB
+LH
+LW
+LBU
+LHU
+LWL
+LWR
+SB
+SH
+SW
+SWL
+SWR
+BLTZ
 SLL
 SRL
 SRA
@@ -40,9 +67,6 @@ JR
 JALR
 MOVZ
 MOVN
-SYSCALL
-BREAK
-SDBBP
 MFHI
 MTHI
 MFLO

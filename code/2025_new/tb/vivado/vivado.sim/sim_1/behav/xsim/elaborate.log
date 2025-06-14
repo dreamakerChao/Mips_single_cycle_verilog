@@ -1,0 +1,17 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot control_tb_behav xil_defaultlib.control_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 7. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 7. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Control_unit
+Compiling module xil_defaultlib.control_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot control_tb_behav

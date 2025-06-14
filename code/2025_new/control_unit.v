@@ -2,12 +2,12 @@
 // Control Unit Template for MIPS32
 // -----------------------------------------------------------------------------
 `include "Control_encode.vh"  // Contains CTRL_* and ALU_* defines
-`include "Mips32_ISAtbl.vh"  // Contains OP_* and FN_* defines
+`include "Mips32_ISATbl.vh"  // Contains OP_* and FN_* defines
 
 module Control_unit (
     input  wire [5:0] opcode,
     input  wire [5:0] funct,
-    output wire  [16:0] control_word
+    output wire  [20:0] control_word
 );
 
     reg HI_WRITE;
@@ -23,10 +23,10 @@ module Control_unit (
     reg MEMWRITE;
     reg BRANCH;
     reg JUMP;
-    reg ALUOP;
+    reg [3:0]ALUOP;
     reg LINKED;
     reg RETURN;
-    reg DATA_TYPE;
+    reg [1:0]DATA_TYPE;
 
 
     // HI_WRITE
@@ -209,8 +209,12 @@ module Control_unit (
     always @(*) begin
         case (opcode)
             //branch instructions
-            `OP_BEQ, `OP_BNE, `OP_BGTZ, `OP_BLEZ, `OP_BLTZ:
+            `OP_BEQ, `OP_BNE, `OP_BGTZ, `OP_BLEZ:
                 BRANCH = 1'b1;
+            `OP_REGIMM:begin
+                if(funct==`RT_BLTZ)
+                    BRANCH = 1'b1; // BLTZ   
+            end
             default:
                 BRANCH = 1'b0;
         endcase
@@ -251,7 +255,7 @@ module Control_unit (
                     `FN_SRA, `FN_SRAV:       ALUOP = `ALU_SRA;
                     `FN_MULT, `FN_MULTU:     ALUOP = `ALU_MUL;
                     `FN_DIV, `FN_DIVU:       ALUOP = `ALU_DIV;
-                    default:                 ALUOP = 4'dx;
+                    default:                 ALUOP = 4'd0;
                 endcase
             end
 
@@ -276,13 +280,18 @@ module Control_unit (
                 ALUOP = `ALU_LE;
 
             `OP_BGTZ:
-                ALUOP = `ALU_GT;
+                ALUOP = `ALU_GE;
 
+            `OP_REGIMM: // Branch on register
+            begin
+                if(funct==`RT_BLTZ)
+                    ALUOP = `ALU_LT; // BLTZ
+            end
             `OP_BLTZ:
-                ALUOP = `ALU_LT;
+                ALUOP = `ALU_LE;
 
             default:
-                ALUOP = 4'dx;
+                ALUOP = 4'd0;
         endcase
     end
 
