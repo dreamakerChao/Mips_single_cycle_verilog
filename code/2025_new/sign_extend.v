@@ -1,4 +1,4 @@
-module sign_extend (
+module Sign_extend (
     input wire [15:0]data_in,
     input wire ifunsigned,
     output reg [31:0]data_out

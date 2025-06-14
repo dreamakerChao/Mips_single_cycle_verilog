@@ -1,191 +1,335 @@
-module control_unit (
-    input wire reset,
-    input wire [5:0] op, // inst[31:26]
-    input wire [5:0] funct, //inst_wire[5:0]
+// -----------------------------------------------------------------------------
+// Control Unit Template for MIPS32
+// -----------------------------------------------------------------------------
+`include "Control_encode.vh"  // Contains CTRL_* and ALU_* defines
+`include "Mips32_ISAtbl.vh"  // Contains OP_* and FN_* defines
 
-    output wire ifunsigned,RegDst,ALUSrc,MemtoReg,reg_write,MemRead,MemWrite,Branch,Jump,
-
-    output reg [2:0]data_type,
-    output reg [1:0]j_type,
-    output reg [2:0]HiLotype,
-    output wire [3:0]ALUop
-                
+module Control_unit (
+    input  wire [5:0] opcode,
+    input  wire [5:0] funct,
+    output wire  [16:0] control_word
 );
 
-// opcode
-    parameter 	addi	=	6'b	001000	;
-    parameter 	addiu	=	6'b	001001	;
-    parameter 	andi	=	6'b	001100	;
-    parameter 	ori	=	6'b	001101	;
-    parameter 	beq	=	6'b	000100	;
-    parameter 	blez	=	6'b	000110	;
-    parameter 	bne	=	6'b	000101	;
-    parameter 	bgtz	=	6'b	000111	;
-    parameter 	lb	=	6'b	100000	;
-    parameter 	lbu	=	6'b	100100	;
-    parameter 	lhu	=	6'b	100101	;
-    parameter 	lui	=	6'b	001111	;
-    parameter 	lw	=	6'b	100011	;
-    parameter 	slti	=	6'b	001010	;
-    parameter 	sltiu	=	6'b	001011	;
-    parameter 	sb	=	6'b	101000	;
-    parameter 	sh	=	6'b	101001	;
-    parameter 	sw	=	6'b	101011	;
-    parameter 	jal	=	6'b	000011	;
-    parameter 	j	=	6'b	000010	;
-
-//funct
-    parameter	add	=	6'b	100000	;
-    parameter	addu	=	6'b	100001	;
-    parameter	sra	=	6'b	000011	;
-    parameter	andl	=	6'b	100100	;
-    parameter	norl	=	6'b	100111	;
-    parameter	orl	=	6'b	100101	;
-    parameter	xorl	=	6'b	100110	;
-    parameter	div	=	6'b	011010	;
-    parameter	jalr	=	6'b	001001	;
-    parameter	jr	=	6'b	001000	;
-    parameter	sll	=	6'b	000000	;
-    parameter	srl	=	6'b	000010	;
-    parameter	mfhi	=	6'b	010000	;
-    parameter	mflo	=	6'b	010010	;
-    parameter	mthi	=	6'b	010001	;
-    parameter	mtlo	=	6'b	010011	;
-    parameter	mult	=	6'b	011000	;
-    parameter	slt	=	6'b	101010	;
-    parameter	sltu	=	6'b	101011	;
-    parameter	sub	=	6'b	100010	;
-    parameter	divu	=	6'b	011011	;
-    parameter	multu	=	6'b	011001	;
-    parameter	subu	=	6'b	100011	;
-
-//code
+    reg HI_WRITE;
+    reg HI_READ;
+    reg LO_WRITE;
+    reg LO_READ;
+    reg IFUNSIGNED;
+    reg REGDST;
+    reg ALUSRC;
+    reg MEMTOREG;
+    reg REGWRITE;
+    reg MEMREAD;
+    reg MEMWRITE;
+    reg BRANCH;
+    reg JUMP;
+    reg ALUOP;
+    reg LINKED;
+    reg RETURN;
+    reg DATA_TYPE;
 
 
-    reg [12:0]data=13'd0;
-
+    // HI_WRITE
     always @(*) begin
-        if (~reset) begin
-            case(op)
-            6'b00_0000: begin//R_type
-                case (funct) 
-					add : data=13'b 0100100000011 ;
-					addu : data=13'b 1100100000011 ;
-					sra : data=13'b 01x0100001011 ;
-					andl : data=13'b 0100100000000 ;
-					norl : data=13'b 0100100000001 ;
-					orl : data=13'b 0100100000001 ;
-					xorl : data=13'b 0100100000010 ;
-					div : data=13'b 0010100001111 ;
-					jalr : data=13'b 0100100010000 ;
-					jr : data=13'b 01x0000010000 ;
-					sll : data=13'b 0100100001001 ;
-					srl : data=13'b 0100100001011 ;
-					mfhi : data=13'b 0100100000000 ;
-					mflo : data=13'b 0100100000000 ;
-					mthi : data=13'b 0000100000000 ;
-					mtlo : data=13'b 0000100000000 ;
-					mult : data=13'b 0000100001110 ;
-					slt : data=13'b 0100100000110 ;
-					sltu : data=13'b 1100100000110 ;
-					sub : data=13'b 0100100000100 ;
-					divu : data=13'b 1000100001111 ;
-					multu : data=13'b 1000100001110 ;
-					subu : data=13'b 1100100000100 ;
+        if (opcode == `OP_SPECIAL &&
+            (funct == `FN_MTHI || funct == `FN_MULT ||
+            funct == `FN_MULTU || funct == `FN_DIV ||
+            funct == `FN_DIVU)) begin
+            HI_WRITE = 1'b1; // HI_WRITE
+        end else begin
+            HI_WRITE = 1'b0; // HI_WRITE
+        end
+    end
 
-                    default:  data=13'd0;
+    // HI_READ
+    always @(*) begin
+        if(opcode == `OP_SPECIAL &&
+            (funct == `FN_MFHI || funct == `FN_MULT ||
+            funct == `FN_MULTU || funct == `FN_DIV ||
+            funct == `FN_DIVU)) begin
+            HI_READ = 1'b1; // HI_READ
+        end else begin
+            HI_READ = 1'b0; // HI_READ
+        end
+    end
+
+    // LO_WRITE
+    always @(*) begin
+        if (opcode == `OP_SPECIAL &&
+            (funct == `FN_MTLO || funct == `FN_MULT ||
+            funct == `FN_MULTU || funct == `FN_DIV ||
+            funct == `FN_DIVU)) begin
+            LO_WRITE = 1'b1; // LO_WRITE
+        end else begin
+            LO_WRITE = 1'b0; // LO_WRITE
+        end
+    end
+
+    // LO_READ
+    always @(*) begin
+        if(opcode == `OP_SPECIAL &&
+            (funct == `FN_MFLO || funct == `FN_MULT ||
+            funct == `FN_MULTU || funct == `FN_DIV ||
+            funct == `FN_DIVU)) begin
+            LO_READ = 1'b1; // LO_READ
+        end else begin
+            LO_READ = 1'b0; // LO_READ
+        end
+    end
+
+    // IFUNSIGNED
+    always @(*) begin
+        if (
+            // R-type unsigned operations
+            (opcode == `OP_SPECIAL &&
+            (funct == `FN_MULTU || funct == `FN_DIVU)) ||
+
+            // I-type unsigned operations or loads
+            (opcode == `OP_ADDIU ||
+            opcode == `OP_SLTIU ||
+            opcode == `OP_LBU   ||
+            opcode == `OP_LHU)
+        ) begin
+            IFUNSIGNED = 1'b1; // IFUNSIGNED
+        end else begin
+            IFUNSIGNED = 1'b0; // IFUNSIGNED
+        end
+    end
+
+
+    // REGDST
+    // 0: rt, 1: rd
+    always @(*) begin
+        if (opcode == `OP_SPECIAL) begin
+            REGDST = 1'b1; // R-type rd
+        end else begin
+            REGDST = 1'b0; // I-type rt
+        end
+    end
+
+    // ALUSRC
+    // 0: reg_out
+    // 1: immediate
+    always @(*) begin
+        case (opcode)
+            `OP_ADDI, `OP_ADDIU,
+            `OP_ANDI, `OP_ORI, `OP_XORI,
+            `OP_SLTI, `OP_SLTIU,
+            `OP_LUI,
+            `OP_LB, `OP_LH, `OP_LW, `OP_LBU, `OP_LHU, `OP_LWL, `OP_LWR,
+            `OP_SB, `OP_SH, `OP_SW, `OP_SWL, `OP_SWR:
+                ALUSRC = 1'b1; // Use immediate for I-type and load/store
+            default:
+                ALUSRC = 1'b0; // Use register for R-type
+        endcase
+    end
+
+    // MEMTOREG
+    // 0: ALU_out
+    // 1: data (memory read)
+    always @(*) begin
+        if (opcode == `OP_LB  || opcode == `OP_LH  || opcode == `OP_LW  ||
+            opcode == `OP_LBU || opcode == `OP_LHU || opcode == `OP_LWL ||
+            opcode == `OP_LWR) begin
+            MEMTOREG = 1'b1; // Load instructions write memory data to register
+        end else begin
+            MEMTOREG = 1'b0; // Otherwise, write ALU result to register
+        end
+    end
+
+    // REGWRITE
+    // 0: false (do not write to register file)
+    // 1: true  (write to register file)
+    always @(*) begin
+        case (opcode)
+            // R-type: only MFHI, MFLO, and others like ADD/SUB write to register
+            `OP_SPECIAL: begin
+                case (funct)
+                    `FN_JR,
+                    `FN_MTHI, `FN_MTLO,
+                    `FN_MULT, `FN_MULTU,
+                    `FN_DIV,  `FN_DIVU:
+                        REGWRITE = 1'b0;
+
+                    default:
+                        REGWRITE = 1'b1; // other R-type
                 endcase
             end
-            
-            addi : data=13'b 0010100000011 ;
-			addiu : data=13'b 1010100000011 ;
-			andi : data=13'b 0010100000000 ;
-			ori : data=13'b 0010100000001 ;
-			beq : data=13'b 0000000100100 ;
-			blez : data=13'b 0000000100111 ;
-			bne : data=13'b 0000000101101 ;
-			bgtz : data=13'b 0x00000100111 ;
-			lb : data=13'b 0011110000011 ;
-			lbu : data=13'b 0011110000011 ;
-			lhu : data=13'b 0011110000011 ;
-			lui : data=13'b 0011110000011 ;
-			lw : data=13'b 0011110000011 ;
-			slti : data=13'b 0010100000110 ;
-			sltiu : data=13'b 1010100000110 ;
-			sb : data=13'b 0010001000011 ;
-			sh : data=13'b 0010001000011 ;
-			sw : data=13'b 0010001000011 ;
-			jal : data=13'b 0010100010000 ;
-			j : data=13'b 0010000010000 ;
-            default: data=13'd0; 
-            endcase
-        end
-        else begin
-            data = 13'd0;
-        end
-    end
-    
-    always@(op) begin //load and store special
-        case (op)
-            //load
-            //data_type = {data_unsigned?,type}
-            //type: 00 word, 01 halfword, 10 byte.
-            lb:data_type=3'b010;
-            lbu:data_type=3'b110;
-            lhu:data_type=3'b101;
-            lw:data_type=3'b000;
-            //store
-            sb:data_type=3'b010;
-            sh:data_type=3'b001;
-            sw:data_type=3'b100;
-            default:data_type=3'b000;
+
+            // I-type: write-back instructions
+            `OP_ADDI, `OP_ADDIU,
+            `OP_ANDI, `OP_ORI, `OP_XORI,
+            `OP_SLTI, `OP_SLTIU,
+            `OP_LUI,
+            `OP_LB, `OP_LH, `OP_LW, `OP_LBU, `OP_LHU, `OP_LWL, `OP_LWR:
+                REGWRITE = 1'b1;
+
+            // J-type with link (JAL writes to $ra)
+            `OP_JAL:
+                REGWRITE = 1'b1;
+
+            default:
+                REGWRITE = 1'b0;
         endcase
-        
-    end
-
-    always@(op,funct) begin
-        if(op==jal) begin
-            j_type=2'b10;
-        end else if(op==6'd0)begin
-            case(funct)
-                jalr: j_type=2'b11;
-                jr: j_type=2'b01;
-                default: j_type=2'b00;
-            endcase
-        end
-        else begin
-            j_type=2'b00;
-        end
-    end
-
-    always@(op,funct) begin
-        if(op==6'd0)begin
-            case(funct)
-                    //Read,Write
-                    /* Hi Lo R/W 
-                      */
-                mthi: HiLotype=3'b101;
-                mtlo: HiLotype=3'b011;
-                mfhi: HiLotype=3'b100;
-                mflo: HiLotype=3'b010;
-
-                mult: HiLotype=3'b111;
-                multu: HiLotype=3'b111;
-
-                div: HiLotype=3'b111;
-                divu: HiLotype=3'b111;
-                default:  HiLotype=3'b000;//others
-            endcase
-        end
-        else begin
-            HiLotype=3'b000;
-        end
     end
 
 
-    assign {ifunsigned,RegDst,ALUSrc,MemtoReg,reg_write,MemRead,MemWrite,Branch,Jump,ALUop[3],ALUop[2],ALUop[1],ALUop[0]}  = data;
-        // rt,rd 
-        //data,sign ex  
-        //alu result,data
-        //oo+,01-,10 func       
+
+    // MEMREAD
+    // 0: false (do not read memory)
+    // 1: true  (read memory)
+    always @(*) begin
+        case (opcode)
+            `OP_LB, `OP_LH, `OP_LW,
+            `OP_LBU, `OP_LHU,
+            `OP_LWL, `OP_LWR:
+                MEMREAD = 1'b1; // Load instructions require memory read
+
+            default:
+                MEMREAD = 1'b0;
+        endcase
+    end
+
+    // MEMWRITE
+    // 0: false (do not write memory)
+    // 1: true  (write memory)
+    always @(*) begin
+        case (opcode)
+            // Store instructions
+            `OP_SB, `OP_SH, `OP_SW, `OP_SWL, `OP_SWR:
+                MEMWRITE = 1'b1;
+            default:
+                MEMWRITE = 1'b0;
+        endcase
+    end
+
+    // BRANCH
+    // 0: false (do not branch)
+    // 1: true  (branch)
+    always @(*) begin
+        case (opcode)
+            //branch instructions
+            `OP_BEQ, `OP_BNE, `OP_BGTZ, `OP_BLEZ, `OP_BLTZ:
+                BRANCH = 1'b1;
+            default:
+                BRANCH = 1'b0;
+        endcase
+    end
+
+    // JUMP
+    // 0: false (do not jump)
+    // 1: true  (jump)
+    always @(*) begin
+        case (opcode)
+            `OP_J, `OP_JAL: JUMP = 1'b1;
+            `OP_SPECIAL: begin
+                case (funct)
+                    `FN_JR, `FN_JALR: JUMP = 1'b1;
+                    default: JUMP = 1'b0;
+                endcase
+            end
+            default: JUMP = 1'b0;
+        endcase
+    end
+
+    // ALUOP
+    always @(*) begin
+        case (opcode)
+            // R-type instructions
+            `OP_SPECIAL: begin
+                case (funct)
+                    `FN_ADD, `FN_ADDU:       ALUOP = `ALU_ADD;
+                    `FN_SUB, `FN_SUBU:       ALUOP = `ALU_SUB;
+                    `FN_AND:                 ALUOP = `ALU_AND;
+                    `FN_OR:                  ALUOP = `ALU_OR;
+                    `FN_XOR:                 ALUOP = `ALU_XOR;
+                    `FN_NOR:                 ALUOP = `ALU_NOR;
+                    `FN_SLT:                 ALUOP = `ALU_SLT;
+                    `FN_SLTU:                ALUOP = `ALU_SLTU;
+                    `FN_SLL, `FN_SLLV:       ALUOP = `ALU_SLL;
+                    `FN_SRL, `FN_SRLV:       ALUOP = `ALU_SRL;
+                    `FN_SRA, `FN_SRAV:       ALUOP = `ALU_SRA;
+                    `FN_MULT, `FN_MULTU:     ALUOP = `ALU_MUL;
+                    `FN_DIV, `FN_DIVU:       ALUOP = `ALU_DIV;
+                    default:                 ALUOP = 4'dx;
+                endcase
+            end
+
+            // I-type arithmetic instructions
+            `OP_ADDI, `OP_ADDIU,
+            `OP_LW, `OP_LB, `OP_LH, `OP_LBU, `OP_LHU, `OP_LWL, `OP_LWR,
+            `OP_SW, `OP_SB, `OP_SH, `OP_SWL, `OP_SWR,
+            `OP_LL, `OP_SC:
+                ALUOP = `ALU_ADD;
+
+            `OP_ANDI:     ALUOP = `ALU_AND;
+            `OP_ORI:      ALUOP = `ALU_OR;
+            `OP_XORI:     ALUOP = `ALU_XOR;
+            `OP_SLTI:     ALUOP = `ALU_SLT;
+            `OP_SLTIU:    ALUOP = `ALU_SLTU;
+
+            // Branch instructions
+            `OP_BEQ, `OP_BNE:
+                ALUOP = `ALU_EQ;
+
+            `OP_BLEZ:
+                ALUOP = `ALU_LE;
+
+            `OP_BGTZ:
+                ALUOP = `ALU_GT;
+
+            `OP_BLTZ:
+                ALUOP = `ALU_LT;
+
+            default:
+                ALUOP = 4'dx;
+        endcase
+    end
+
+
+    // LINKED
+    // 0: false (not linked)
+    // 1: true  (linked, e.g., JAL)
+    always @(*) begin
+        if (opcode == `OP_JAL || (opcode == `OP_SPECIAL && funct == `FN_JALR))
+            LINKED = 1'b1;
+        else
+            LINKED = 1'b0;
+    end
+
+    // RETURN
+    // 0: false (not returning)
+    // 1: true  (returning, e.g., JR)
+    always @(*) begin
+        if (opcode == `OP_SPECIAL && funct == `FN_JR)
+            RETURN = 1'b1;
+        else
+            RETURN = 1'b0;
+    end
+
+    // DATA_TYPE
+    // 00: word, 01: half, 10: byte
+    always @(*) begin
+        case (opcode)
+            // Byte
+            `OP_LB, `OP_LBU, `OP_SB:
+                DATA_TYPE = 2'b10;
+
+            // Halfword
+            `OP_LH, `OP_LHU, `OP_SH:
+                DATA_TYPE = 2'b01;
+
+            default:
+                DATA_TYPE = 2'b00; //defalut word
+        endcase
+    end
+
+
+    // output control word
+    assign control_word = {
+        HI_WRITE, HI_READ, LO_WRITE, LO_READ,
+        IFUNSIGNED, REGDST, ALUSRC, MEMTOREG,
+        REGWRITE, MEMREAD, MEMWRITE, BRANCH,
+        JUMP, ALUOP, LINKED, RETURN, DATA_TYPE
+    };
 endmodule

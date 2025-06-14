@@ -1,5 +1,5 @@
 //for lb,lh...etc.
-module load_data_sign_ex (
+module Load_data_sign_ex (
     input wire [31:0]data_in,
     input wire [15:0]immediate,
 

@@ -1,4 +1,4 @@
-module Address_alu (
+module Addr_ALU (
     input wire [31:0] addr,
     input wire [31:0] branch_count,
 

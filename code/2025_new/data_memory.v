@@ -1,4 +1,4 @@
-module data_memory #(
+module Data_memory #(
     // 1 KiB = 1024 bytes
     parameter MEM_BYTES = 1024
 )(

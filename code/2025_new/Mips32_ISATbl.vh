@@ -1,5 +1,5 @@
-`ifndef MIPS32_OPCODES_HEX_VH
-`define MIPS32_OPCODES_HEX_VH
+`ifndef MIPS32_ISATBL_VH
+`define MIPS32_ISATBL_VH
 
 // -----------------------------------------------------------------------------
 //  Primary opcodes (6 bits)                                                     
@@ -85,4 +85,4 @@
 `define FN_USER0          6'h3E // funct 0x3E User‑defined extension 0
 `define FN_USER1          6'h3F // funct 0x3F User‑defined extension 1
 
-`endif // MIPS32_OPCODES_HEX_VH
+`endif // MMIPS32_ISATBL_VH

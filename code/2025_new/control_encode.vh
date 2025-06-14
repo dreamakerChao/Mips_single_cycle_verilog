@@ -1,7 +1,11 @@
 `ifndef CONTROL_ENCODE_VH
 `define CONTROL_ENCODE_VH
 
-// Bit positions for control word [12:0]
+// Bit positions for control word [16:0]
+`define CTRL_HI_WRITE    16
+`define CTRL_HI_READ     15
+`define CTRL_LO_WRITE   14
+`define CTRL_LO_READ     13
 `define CTRL_IFUNSIGNED  12
 `define CTRL_REGDST      11
 `define CTRL_ALUSRC      10
@@ -31,8 +35,9 @@
 `define ALU_MUL    4'd14
 `define ALU_DIV    4'd15
 
-// Macro to construct control word
-`define CTRL(iu, rd, als, mtr, rw, mr, mw, br, j, alu) \
-    {iu, rd, als, mtr, rw, mr, mw, br, j, alu}
+// data to data_mem type
+`define DATA_TYPE_WORD  2'b00
+`define DATA_TYPE_HALF  2'b01
+`define DATA_TYPE_BYTE  2'b10
 
 `endif

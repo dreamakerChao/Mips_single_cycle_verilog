@@ -11,7 +11,7 @@ module PC (
         array=32'h0000_0000;
     end
 
-    always @(negedge clk) begin
+    always @(postedge clk) begin
         if(~reset)
             array=addr_in;
         else
