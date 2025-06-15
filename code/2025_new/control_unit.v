@@ -7,7 +7,8 @@
 module Control_unit (
     input  wire [5:0] opcode,
     input  wire [5:0] funct,
-    output wire  [20:0] control_word
+    input  wire [4:0] rt,
+    output wire  [21:0] control_word
 );
 
     reg HI_WRITE;
@@ -23,9 +24,10 @@ module Control_unit (
     reg MEMWRITE;
     reg BRANCH;
     reg JUMP;
-    reg [3:0]ALUOP;
     reg LINKED;
     reg RETURN;
+    reg [3:0]ALUOP;
+    reg SHIFT_V;
     reg [1:0]DATA_TYPE;
 
 
@@ -212,7 +214,7 @@ module Control_unit (
             `OP_BEQ, `OP_BNE, `OP_BGTZ, `OP_BLEZ:
                 BRANCH = 1'b1;
             `OP_REGIMM:begin
-                if(funct==`RT_BLTZ)
+                if(rt==`RT_BLTZ)
                     BRANCH = 1'b1; // BLTZ   
             end
             default:
@@ -236,66 +238,6 @@ module Control_unit (
         endcase
     end
 
-    // ALUOP
-    always @(*) begin
-        case (opcode)
-            // R-type instructions
-            `OP_SPECIAL: begin
-                case (funct)
-                    `FN_ADD, `FN_ADDU:       ALUOP = `ALU_ADD;
-                    `FN_SUB, `FN_SUBU:       ALUOP = `ALU_SUB;
-                    `FN_AND:                 ALUOP = `ALU_AND;
-                    `FN_OR:                  ALUOP = `ALU_OR;
-                    `FN_XOR:                 ALUOP = `ALU_XOR;
-                    `FN_NOR:                 ALUOP = `ALU_NOR;
-                    `FN_SLT:                 ALUOP = `ALU_SLT;
-                    `FN_SLTU:                ALUOP = `ALU_SLTU;
-                    `FN_SLL, `FN_SLLV:       ALUOP = `ALU_SLL;
-                    `FN_SRL, `FN_SRLV:       ALUOP = `ALU_SRL;
-                    `FN_SRA, `FN_SRAV:       ALUOP = `ALU_SRA;
-                    `FN_MULT, `FN_MULTU:     ALUOP = `ALU_MUL;
-                    `FN_DIV, `FN_DIVU:       ALUOP = `ALU_DIV;
-                    default:                 ALUOP = 4'd0;
-                endcase
-            end
-
-            // I-type arithmetic instructions
-            `OP_ADDI, `OP_ADDIU,
-            `OP_LW, `OP_LB, `OP_LH, `OP_LBU, `OP_LHU, `OP_LWL, `OP_LWR,
-            `OP_SW, `OP_SB, `OP_SH, `OP_SWL, `OP_SWR,
-            `OP_LL, `OP_SC:
-                ALUOP = `ALU_ADD;
-
-            `OP_ANDI:     ALUOP = `ALU_AND;
-            `OP_ORI:      ALUOP = `ALU_OR;
-            `OP_XORI:     ALUOP = `ALU_XOR;
-            `OP_SLTI:     ALUOP = `ALU_SLT;
-            `OP_SLTIU:    ALUOP = `ALU_SLTU;
-
-            // Branch instructions
-            `OP_BEQ, `OP_BNE:
-                ALUOP = `ALU_EQ;
-
-            `OP_BLEZ:
-                ALUOP = `ALU_LE;
-
-            `OP_BGTZ:
-                ALUOP = `ALU_GE;
-
-            `OP_REGIMM: // Branch on register
-            begin
-                if(funct==`RT_BLTZ)
-                    ALUOP = `ALU_LT; // BLTZ
-            end
-            `OP_BLTZ:
-                ALUOP = `ALU_LE;
-
-            default:
-                ALUOP = 4'd0;
-        endcase
-    end
-
-
     // LINKED
     // 0: false (not linked)
     // 1: true  (linked, e.g., JAL)
@@ -314,6 +256,73 @@ module Control_unit (
             RETURN = 1'b1;
         else
             RETURN = 1'b0;
+    end
+
+    // ALUOP
+    always @(*) begin
+        case (opcode)
+            // R-type instructions
+            `OP_SPECIAL: begin
+                case (funct)
+                    `FN_ADD, `FN_ADDU:       ALUOP = `ALU_ADD;
+                    `FN_SUB, `FN_SUBU:       ALUOP = `ALU_SUB;
+                    `FN_AND:                 ALUOP = `ALU_AND;
+                    `FN_OR:                  ALUOP = `ALU_OR;
+                    `FN_XOR:                 ALUOP = `ALU_XOR;
+                    `FN_NOR:                 ALUOP = `ALU_NOR;
+                    `FN_SLT:                 ALUOP = `ALU_LT;
+                    `FN_SLTU:                ALUOP = `ALU_LT;
+                    `FN_SLL, `FN_SLLV:       ALUOP = `ALU_SLL;
+                    `FN_SRL, `FN_SRLV:       ALUOP = `ALU_SRL;
+                    `FN_SRA, `FN_SRAV:       ALUOP = `ALU_SRA;
+                    `FN_MULT, `FN_MULTU:     ALUOP = `ALU_MUL;
+                    `FN_DIV, `FN_DIVU:       ALUOP = `ALU_DIV;
+                    default:                 ALUOP = 4'd0;
+                endcase
+            end
+
+            // I-type arithmetic instructions
+            `OP_ADDI, `OP_ADDIU,
+            `OP_LW, `OP_LB, `OP_LH, `OP_LBU, `OP_LHU, `OP_LWL, `OP_LWR,
+            `OP_SW, `OP_SB, `OP_SH, `OP_SWL, `OP_SWR:
+                ALUOP = `ALU_ADD;
+
+            `OP_ANDI:     ALUOP = `ALU_AND;
+            `OP_ORI:      ALUOP = `ALU_OR;
+            `OP_XORI:     ALUOP = `ALU_XOR;
+            `OP_SLTI:     ALUOP = `ALU_LT;
+            `OP_SLTIU:    ALUOP = `ALU_LT;
+
+            // Branch instructions
+            `OP_BEQ, `OP_BNE:
+                ALUOP = `ALU_EQ;
+
+            `OP_BLEZ:
+                ALUOP = `ALU_LE;
+
+            `OP_BGTZ:
+                ALUOP = `ALU_GT;
+
+            `OP_REGIMM: // Branch on register
+            begin
+                if(rt==`RT_BLTZ)
+                    ALUOP = `ALU_LT; // BLTZ
+            end
+
+            default:
+                ALUOP = 4'd0;
+        endcase
+    end
+
+    // SHIFT_V
+    // 0: shamt, 1: rs
+    always @(*) begin
+    //SLLV SRLV SRAV
+        if(opcode==`OP_SPECIAL &&(funct==`FN_SLLV || funct==`FN_SRLV || funct==`FN_SRAV)) begin
+            SHIFT_V = 1'b1; // rs
+        end else begin
+            SHIFT_V = 1'b0; // shamt
+        end
     end
 
     // DATA_TYPE
@@ -339,6 +348,6 @@ module Control_unit (
         HI_WRITE, HI_READ, LO_WRITE, LO_READ,
         IFUNSIGNED, REGDST, ALUSRC, MEMTOREG,
         REGWRITE, MEMREAD, MEMWRITE, BRANCH,
-        JUMP, ALUOP, LINKED, RETURN, DATA_TYPE
+        JUMP, LINKED, RETURN, ALUOP, SHIFT_V, DATA_TYPE
     };
 endmodule

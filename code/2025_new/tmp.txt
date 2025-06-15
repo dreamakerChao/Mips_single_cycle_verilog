@@ -1,87 +1,16 @@
-`define FN_SLL           6'h00 // funct 0x00 Shift left logical
-`define FN_SRL           6'h02 // funct 0x02 Shift right logical
-`define FN_SRA           6'h03 // funct 0x03 Shift right arithmetic
-`define FN_SLLV          6'h04 // funct 0x04 Variable shift left logical
-`define FN_SRLV          6'h06 // funct 0x06 Variable shift right logical
-`define FN_SRAV          6'h07 // funct 0x07 Variable shift right arithmetic
-`define FN_JR            6'h08 // funct 0x08 Jump register
-`define FN_JALR          6'h09 // funct 0x09 Jump and link register
-`define FN_MOVZ          6'h0A // funct 0x0A Move if zero
-`define FN_MOVN          6'h0B // funct 0x0B Move if non‑zero
-`define FN_SYSCALL       6'h0C // funct 0x0C System call
-`define FN_BREAK         6'h0D // funct 0x0D Breakpoint
-`define FN_SDBBP         6'h0F // funct 0x0F Software debug breakpoint
-`define FN_MFHI          6'h10 // funct 0x10 Move from HI
-`define FN_MTHI          6'h11 // funct 0x11 Move to HI
-`define FN_MFLO          6'h12 // funct 0x12 Move from LO
-`define FN_MTLO          6'h13 // funct 0x13 Move to LO
-`define FN_MULT          6'h18 // funct 0x18 Multiply (signed)
-`define FN_MULTU         6'h19 // funct 0x19 Multiply (unsigned)
-`define FN_DIV           6'h1A // funct 0x1A Divide (signed)
-`define FN_DIVU          6'h1B // funct 0x1B Divide (unsigned)
-`define FN_ADD           6'h20 // funct 0x20 Add (signed)
-`define FN_ADDU          6'h21 // funct 0x21 Add (unsigned)
-`define FN_SUB           6'h22 // funct 0x22 Subtract (signed)
-`define FN_SUBU          6'h23 // funct 0x23 Subtract (unsigned)
-`define FN_AND           6'h24 // funct 0x24 Bitwise AND
-`define FN_OR            6'h25 // funct 0x25 Bitwise OR
-`define FN_XOR           6'h26 // funct 0x26 Bitwise XOR
-`define FN_NOR           6'h27 // funct 0x27 Bitwise NOR
-`define FN_SLT           6'h2A // funct 0x2A Set on less than (signed)
-`define FN_SLTU          6'h2B // funct 0x2B Set on less than (unsigned)
-
-J
-JAL
-BEQ
-BNE
-BLEZ
-BGTZ
-ADDI
-ADDIU
-SLTI
-SLTIU
-ANDI
-ORI
-XORI
-LUI
-LB
-LH
-LW
-LBU
-LHU
-LWL
-LWR
-SB
-SH
-SW
-SWL
-SWR
-BLTZ
-SLL
-SRL
-SRA
-SLLV
-SRLV
-SRAV
-JR
-JALR
-MOVZ
-MOVN
-MFHI
-MTHI
-MFLO
-MTLO
-MULT
-MULTU
-DIV
-DIVU
-ADD
-ADDU
-SUB
-SUBU
-AND
-OR
-XOR
-NOR
-SLT
-SLTU
+ALU_AND
+ALU_OR
+ALU_XOR
+ALU_NOR
+ALU_ADD
+ALU_SUB
+ALU_EQ
+ALU_GT
+ALU_LT
+ALU_GE
+ALU_LE
+ALU_SRL
+ALU_SRA
+ALU_SLL
+ALU_MUL
+ALU_DIV
