@@ -7,8 +7,8 @@ Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 7. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 7. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 4. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 4. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Control_unit
