@@ -36,7 +36,7 @@ module Control_unit (
         if (opcode == `OP_SPECIAL &&
             (funct == `FN_MTHI || funct == `FN_MULT ||
             funct == `FN_MULTU || funct == `FN_DIV ||
-            funct == `FN_DIVU)) begin
+            funct == `FN_DIVU )) begin
             HI_WRITE = 1'b1; // HI_WRITE
         end else begin
             HI_WRITE = 1'b0; // HI_WRITE
@@ -46,9 +46,7 @@ module Control_unit (
     // HI_READ
     always @(*) begin
         if(opcode == `OP_SPECIAL &&
-            (funct == `FN_MFHI || funct == `FN_MULT ||
-            funct == `FN_MULTU || funct == `FN_DIV ||
-            funct == `FN_DIVU)) begin
+            (funct == `FN_MFHI)) begin
             HI_READ = 1'b1; // HI_READ
         end else begin
             HI_READ = 1'b0; // HI_READ
@@ -70,9 +68,7 @@ module Control_unit (
     // LO_READ
     always @(*) begin
         if(opcode == `OP_SPECIAL &&
-            (funct == `FN_MFLO || funct == `FN_MULT ||
-            funct == `FN_MULTU || funct == `FN_DIV ||
-            funct == `FN_DIVU)) begin
+            (funct == `FN_MFLO)) begin
             LO_READ = 1'b1; // LO_READ
         end else begin
             LO_READ = 1'b0; // LO_READ
@@ -80,34 +76,53 @@ module Control_unit (
     end
 
     // IFUNSIGNED
+    // 0: signed, 1: unsigned
     always @(*) begin
-        if (
-            // R-type unsigned operations
-            (opcode == `OP_SPECIAL &&
-            (funct == `FN_MULTU || funct == `FN_DIVU)) ||
+        case (opcode)
+            //i type
+            `OP_ADDIU,
+            `OP_SLTIU,
+            `OP_LBU,
+            `OP_LHU:     IFUNSIGNED = 1'b1;
 
-            // I-type unsigned operations or loads
-            (opcode == `OP_ADDIU ||
-            opcode == `OP_SLTIU ||
-            opcode == `OP_LBU   ||
-            opcode == `OP_LHU)
-        ) begin
-            IFUNSIGNED = 1'b1; // IFUNSIGNED
-        end else begin
-            IFUNSIGNED = 1'b0; // IFUNSIGNED
-        end
+            //r type
+            `OP_SPECIAL: begin
+                case (funct)
+                    `FN_SLTU,
+                    `FN_ADDU, `FN_SUBU,
+                    `FN_MULTU,
+                    `FN_DIVU: IFUNSIGNED = 1'b1;
+                    default:  IFUNSIGNED = 1'b0;
+                endcase
+            end
+
+            default: IFUNSIGNED = 1'b0;
+        endcase
     end
+
 
 
     // REGDST
     // 0: rt, 1: rd
     always @(*) begin
-        if (opcode == `OP_SPECIAL) begin
-            REGDST = 1'b1; // R-type rd
-        end else begin
-            REGDST = 1'b0; // I-type rt
-        end
+        case (opcode)
+            // R-type instructions
+            `OP_SPECIAL: begin
+                case (funct)
+                    `FN_JR:
+                        REGDST = 1'b0;
+                    `FN_MTHI, `FN_MTLO:
+                        REGDST = 1'b0; 
+                    default:
+                        REGDST = 1'b1; // R-type uses rd
+                endcase
+            end
+
+            default:
+                REGDST = 1'b0; // I-type uses rt
+        endcase
     end
+
 
     // ALUSRC
     // 0: reg_out
@@ -215,7 +230,9 @@ module Control_unit (
                 BRANCH = 1'b1;
             `OP_REGIMM:begin
                 if(rt==`RT_BLTZ)
-                    BRANCH = 1'b1; // BLTZ   
+                    BRANCH = 1'b1; // BLTZ  
+                else
+                    BRANCH = 1'b0; // other regimm instructions do not branch 
             end
             default:
                 BRANCH = 1'b0;
@@ -252,7 +269,7 @@ module Control_unit (
     // 0: false (not returning)
     // 1: true  (returning, e.g., JR)
     always @(*) begin
-        if (opcode == `OP_SPECIAL && funct == `FN_JR)
+        if (opcode == `OP_SPECIAL && (funct == `FN_JR || funct == `FN_JALR))
             RETURN = 1'b1;
         else
             RETURN = 1'b0;
@@ -286,7 +303,7 @@ module Control_unit (
             `OP_LW, `OP_LB, `OP_LH, `OP_LBU, `OP_LHU, `OP_LWL, `OP_LWR,
             `OP_SW, `OP_SB, `OP_SH, `OP_SWL, `OP_SWR:
                 ALUOP = `ALU_ADD;
-
+            `OP_LUI:      ALUOP = `ALU_AND; // Load Upper Immediate
             `OP_ANDI:     ALUOP = `ALU_AND;
             `OP_ORI:      ALUOP = `ALU_OR;
             `OP_XORI:     ALUOP = `ALU_XOR;
@@ -306,7 +323,7 @@ module Control_unit (
             `OP_REGIMM: // Branch on register
             begin
                 if(rt==`RT_BLTZ)
-                    ALUOP = `ALU_LT; // BLTZ
+                    ALUOP = `ALU_SUB; // BLTZ
             end
 
             default:

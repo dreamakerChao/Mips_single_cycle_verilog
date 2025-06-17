@@ -1,5 +1,3 @@
-Time resolution is 1 ps
-WARNING: Too many words specified in data file control_test.mem
 [PASS] index=0 (       J)
 [PASS] index=27 (     SLL)
 [PASS] index=1 (     JAL)
@@ -68,4 +66,3 @@ WARNING: Too many words specified in data file control_test.mem
 [PASS] index=45 (     SUB)
 [PASS] index=46 (    SUBU)
 [PASS] index=47 (     AND)
-$finish called at time : 65 ns : File "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v" Line 80
