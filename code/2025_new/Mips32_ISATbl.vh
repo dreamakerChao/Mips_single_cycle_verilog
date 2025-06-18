@@ -39,6 +39,7 @@
 // REGIMM rt field definitions (when opcode == 0x01)
 // -----------------------------------------------------------------------------
 `define RT_BLTZ          5'h00
+`define RT_BGEZ          5'h01
 
 // -----------------------------------------------------------------------------
 // Function field values for R-type (SPECIAL) instructions

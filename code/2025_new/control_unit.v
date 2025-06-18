@@ -39,7 +39,8 @@ module Control_unit (
             `OP_REGIMM: begin
                 case (rt)
                     `RT_BLTZ: control_word = `CTRL_BLTZ;
-                    default:  control_word = 22'b0;
+                    `RT_BGEZ: control_word = `CTRL_BGEZ;
+                    default:  control_word = 22'd0;
                 endcase
             end
             `OP_SPECIAL: begin
@@ -70,10 +71,10 @@ module Control_unit (
                     `FN_NOR:   control_word = `CTRL_NOR;
                     `FN_SLT:   control_word = `CTRL_SLT;
                     `FN_SLTU:  control_word = `CTRL_SLTU;
-                    default:   control_word = 22'b0;
+                    default:   control_word = 22'd0;
                 endcase
             end
-            default: control_word = 22'b0;
+            default: control_word = 22'd0;
         endcase
     end
 endmodule
