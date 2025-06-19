@@ -5,12 +5,15 @@ module MIPS_Core (
     input wire clk,
     input wire rst,
 
-    output wire [31:0] PC
+    output wire [31:0] PC,
+    output wire [31:0] inst_out,  // Current instruction
+    output wire [31:0] v0     // Register $v0
 );
     // ---------------------------- IF Stage ----------------------------
     reg [31:0] pc_reg;
     wire [31:0] next_pc;
     wire [31:0] inst;
+    assign inst_out = inst;
 
     assign PC = pc_reg;
 
@@ -69,7 +72,8 @@ module MIPS_Core (
         .rs_data(rs_val),
         .rt_data(rt_val),
         .hi_data_out(hi_val),
-        .lo_data_out(lo_val)
+        .lo_data_out(lo_val),
+        .test_output(v0)
     );
 
     // ---------------------------- EX Stage ----------------------------
@@ -119,7 +123,7 @@ module MIPS_Core (
         .BranchTaken(do_branch)
     );
 
-    wire [31:0] pc_branch = pc_reg + 4 + ({{14{imm[15]}}, imm, 2'b00});
+    wire [31:0] pc_branch = pc_reg + 32'd4 + ({{14{imm[15]}}, imm, 2'b00});
     wire [31:0] pc_jump   = {pc_reg[31:28], jidx, 2'b00};
     wire [31:0] pc_return = rs_val; // for JR/JALR
 

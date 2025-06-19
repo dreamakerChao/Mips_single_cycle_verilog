@@ -12,8 +12,12 @@ module Regfile(
     output wire [31:0] rs_data,           // Output of rs register
     output wire [31:0] rt_data,           // Output of rt register
     output wire [31:0] hi_data_out,       // Output of HI
-    output wire [31:0] lo_data_out        // Output of LO
+    output wire [31:0] lo_data_out,        // Output of LO
+
+    output wire [31:0] test_output // For testing purposes, can be removed later
 );
+
+    
 
     // General-purpose register file (excluding $zero)
     reg [31:0] reg_array [31:1];  // $1 ~ $31
@@ -59,4 +63,6 @@ module Regfile(
         end
     end
 
+
+    assign test_output = reg_array[2]; 
 endmodule
