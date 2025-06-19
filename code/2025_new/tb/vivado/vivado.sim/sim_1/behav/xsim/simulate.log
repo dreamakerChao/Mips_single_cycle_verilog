@@ -1,71 +1,54 @@
 Time resolution is 1 ps
-WARNING: Too many words specified in data file control_test.mem
-[PASS] index=0 (       J)
-[PASS] index=27 (     SLL)
-[PASS] index=1 (     JAL)
-[PASS] index=27 (     SLL)
-[PASS] index=2 (     BEQ)
-[PASS] index=27 (     SLL)
-[PASS] index=3 (     BNE)
-[PASS] index=27 (     SLL)
-[PASS] index=4 (    BLEZ)
-[PASS] index=27 (     SLL)
-[PASS] index=5 (    BGTZ)
-[PASS] index=27 (     SLL)
-[PASS] index=26 (    BLTZ)
-[PASS] index=27 (     SLL)
-[PASS] index=6 (    ADDI)
-[PASS] index=7 (   ADDIU)
-[PASS] index=8 (    SLTI)
-[PASS] index=9 (   SLTIU)
-[PASS] index=10 (    ANDI)
-[PASS] index=11 (     ORI)
-[PASS] index=12 (    XORI)
-[PASS] index=13 (     LUI)
-[PASS] index=14 (      LB)
-[PASS] index=15 (      LH)
-[PASS] index=16 (     LWL)
-[PASS] index=17 (      LW)
-[PASS] index=18 (     LBU)
-[PASS] index=19 (     LHU)
-[PASS] index=20 (     LWR)
-[PASS] index=21 (      SB)
-[PASS] index=22 (      SH)
-[PASS] index=23 (     SWL)
-[PASS] index=24 (      SW)
-[PASS] index=25 (     SWR)
-[PASS] index=27 (     SLL)
-[PASS] index=28 (     SRL)
-[PASS] index=29 (     SRA)
-[PASS] index=30 (    SLLV)
-[PASS] index=31 (    SRLV)
-[PASS] index=33 (      JR)
-[PASS] index=32 (    SRAV)
-[PASS] index=34 (    JALR)
-[PASS] index=27 (     SLL)
-[PASS] index=35 (    MFHI)
-[PASS] index=36 (    MTHI)
-[PASS] index=37 (    MFLO)
-[PASS] index=38 (    MTLO)
-[PASS] index=39 (    MULT)
-[PASS] index=40 (   MULTU)
-[PASS] index=3 (     BNE)
-[PASS] index=41 (     DIV)
->[SKIP] Unknown instruction encoding: 0007000d
-[PASS] index=7 (   ADDIU)
-[PASS] index=3 (     BNE)
-[PASS] index=13 (     LUI)
-[PASS] index=3 (     BNE)
-[PASS] index=27 (     SLL)
->[SKIP] Unknown instruction encoding: 0006000d
-[PASS] index=37 (    MFLO)
-[PASS] index=3 (     BNE)
-[PASS] index=42 (    DIVU)
->[SKIP] Unknown instruction encoding: 0007000d
-[PASS] index=37 (    MFLO)
-[PASS] index=43 (     ADD)
-[PASS] index=44 (    ADDU)
-[PASS] index=45 (     SUB)
-[PASS] index=46 (    SUBU)
-[PASS] index=47 (     AND)
-$finish called at time : 65 ns : File "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v" Line 80
+Time	PC
+0	00000000
+25000	00000004
+35000	00000124
+45000	00000128
+55000	0000012c
+65000	00000130
+75000	00000134
+85000	00000138
+95000	0000013c
+105000	00000140
+115000	00000144
+125000	00000148
+135000	0000014c
+145000	00000150
+155000	00000154
+165000	00000158
+175000	0000015c
+185000	00000160
+195000	00000164
+205000	00000168
+215000	0000016c
+225000	00000170
+235000	00000174
+245000	00000178
+255000	0000017c
+265000	00000180
+275000	00000184
+285000	00000188
+295000	0000018c
+305000	00000190
+315000	00000194
+325000	00000198
+335000	0000019c
+345000	000001a0
+355000	000001a4
+365000	000001a8
+375000	000001ac
+385000	000001b0
+395000	000001b4
+405000	000001b8
+415000	000001bc
+425000	000001c0
+435000	000001c4
+445000	000001c8
+455000	000001cc
+465000	000001d0
+475000	000001d4
+485000	000001d8
+495000	000001dc
+505000	000001e0
+515000	000001e4
+$finish called at time : 520 ns : File "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_mips.v" Line 36

@@ -1,0 +1,56 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Jun 19 12:41:02 2025
+# Process ID         : 19224
+# Current directory  : D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent4840 D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\vivado\vivado.xpr
+# Log file           : D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.log
+# Journal file       : D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado\vivado.jou
+# Running On         : DESKTOP-OQRTPSI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i5-12400F
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 34193 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 36341 MB
+# Available Virtual  : 23804 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/check_signal.mem] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/check_signal.mem
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/control_test.mem] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/control_test.mem
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v
+add_files -norecurse {D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_encode.vh D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Mips32_ISATbl.vh}
+add_files -norecurse {D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/PC_alu.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/prog.mem
+add_files -norecurse D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_mips.v
+update_compile_order -fileset sources_1
+launch_simulation
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/PC_alu.v] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/PC_alu.v
+launch_simulation
+launch_simulation
+launch_simulation
+close_project
+open_project D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.xpr
+launch_simulation
+update_compile_order -fileset sources_1
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_MIPS_Core.tcl
+close_sim

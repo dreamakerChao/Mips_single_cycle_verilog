@@ -15,7 +15,7 @@ module Data_memory #(
     (* ram_style = "block" *)
     reg [7:0] mem [0:MEM_BYTES-1];
 
-    initial begin
+    initial begin : init_mem
         integer i;
         for (i = 0; i < MEM_BYTES; i = i + 1)
             mem[i] = 8'd0;

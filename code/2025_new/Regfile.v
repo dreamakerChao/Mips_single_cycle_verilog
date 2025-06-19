@@ -28,6 +28,16 @@ module Regfile(
     assign hi_data_out = hi;
     assign lo_data_out = lo;
 
+    initial begin : init_mem
+        integer i;
+        // Initialize general-purpose registers to 0
+        for (i = 1; i < 32; i = i + 1)
+            reg_array[i] = 32'd0;
+        hi = 32'd0;
+        lo = 32'd0;
+    end
+
+
     // Sequential write logic
     integer i;
     always @(posedge clk or posedge rst) begin

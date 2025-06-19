@@ -1,0 +1,675 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Jun 19 12:41:02 2025
+# Process ID         : 19224
+# Current directory  : D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent4840 D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\vivado\vivado.xpr
+# Log file           : D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.log
+# Journal file       : D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado\vivado.jou
+# Running On         : DESKTOP-OQRTPSI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i5-12400F
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 34193 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 36341 MB
+# Available Virtual  : 23804 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.2/data/ip'.
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/check_signal.mem] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/check_signal.mem
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/control_test.mem] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/control_test.mem
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_Control_test.v
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+add_files -norecurse {D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_encode.vh D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Mips32_ISATbl.vh}
+WARNING: [filemgmt 56-12] File 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_encode.vh' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Mips32_ISATbl.vh' cannot be added to the project because it already exists in the project, skipping this file
+add_files -norecurse {D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/PC_alu.v D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v}
+WARNING: [filemgmt 56-12] File 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+add_files -norecurse D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/prog.mem
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+add_files -norecurse D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_mips.v
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+ERROR: [Common 17-180] Spawn failed: No error
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+ERROR: [VRFC 10-8885] declarations are not allowed in an unnamed block [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:19]
+ERROR: [VRFC 10-8530] module 'Data_memory' is ignored due to previous errors [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+export_ip_user_files -of_objects  [get_files D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/PC_alu.v] -no_script -reset -force -quiet
+remove_files  D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/PC_alu.v
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+ERROR: [VRFC 10-8885] declarations are not allowed in an unnamed block [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:19]
+ERROR: [VRFC 10-8530] module 'Data_memory' is ignored due to previous errors [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+ERROR: [VRFC 10-8885] declarations are not allowed in an unnamed block [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:19]
+ERROR: [VRFC 10-8530] module 'Data_memory' is ignored due to previous errors [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_mips.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\ALU.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_mips.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\ALU.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_mips.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\ALU.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\ALU.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\ALU.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_Control_test.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\tb\tb_mips.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_encode.vh:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\ALU.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\MIPS_Core.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\2025_summer\Mips_single_cycle_verilog\code\2025_new\Control_unit.v:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+ERROR: [VRFC 10-8885] declarations are not allowed in an unnamed block [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:19]
+ERROR: [VRFC 10-8530] module 'Data_memory' is ignored due to previous errors [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+close_project
+open_project D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.2/data/ip'.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+ERROR: [VRFC 10-8885] declarations are not allowed in an unnamed block [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:19]
+ERROR: [VRFC 10-8530] module 'Data_memory' is ignored due to previous errors [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+ERROR: [VRFC 10-8885] declarations are not allowed in an unnamed block [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:19]
+ERROR: [VRFC 10-8530] module 'Data_memory' is ignored due to previous errors [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Inst_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MIPS_Core
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Sign_extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_mips.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_MIPS_Core
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_MIPS_Core_behav xil_defaultlib.tb_MIPS_Core xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_MIPS_Core_behav xil_defaultlib.tb_MIPS_Core xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'rd_data' on this module [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v:66]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_MIPS_Core'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_MIPS_Core' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim/prog.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_MIPS_Core_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Inst_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MIPS_Core
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Sign_extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_mips.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_MIPS_Core
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_MIPS_Core_behav xil_defaultlib.tb_MIPS_Core xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_MIPS_Core_behav xil_defaultlib.tb_MIPS_Core xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 30 differs from formal bit length 8 for port 'addr' [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v:20]
+WARNING: [VRFC 10-3091] actual bit length 25 differs from formal bit length 22 for port 'control_word' [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v:44]
+WARNING: [VRFC 10-3705] select index 25 into 'control' is out of bounds [D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v:61]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v" Line 4. Module MIPS_Core doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v" Line 1. Module Inst_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 4. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v" Line 1. Module Sign_extend doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v" Line 1. Module Regfile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" Line 1. Module Data_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" Line 2. Module Branch_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v" Line 4. Module MIPS_Core doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v" Line 1. Module Inst_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 4. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v" Line 1. Module Sign_extend doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v" Line 1. Module Regfile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" Line 1. Module Data_memory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" Line 2. Module Branch_unit doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Inst_memory
+Compiling module xil_defaultlib.Control_unit
+Compiling module xil_defaultlib.Sign_extend
+Compiling module xil_defaultlib.Regfile
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.Data_memory
+Compiling module xil_defaultlib.Branch_unit
+Compiling module xil_defaultlib.MIPS_Core
+Compiling module xil_defaultlib.tb_MIPS_Core
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_MIPS_Core_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/vivado/vivado.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_MIPS_Core_behav -key {Behavioral:sim_1:Functional:tb_MIPS_Core} -tclbatch {tb_MIPS_Core.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_MIPS_Core.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Time	PC
+0	00000000
+25000	00000004
+35000	00000124
+45000	00000128
+55000	0000012c
+65000	00000130
+75000	00000134
+85000	00000138
+95000	0000013c
+105000	00000140
+115000	00000144
+125000	00000148
+135000	0000014c
+145000	00000150
+155000	00000154
+165000	00000158
+175000	0000015c
+185000	00000160
+195000	00000164
+205000	00000168
+215000	0000016c
+225000	00000170
+235000	00000174
+245000	00000178
+255000	0000017c
+265000	00000180
+275000	00000184
+285000	00000188
+295000	0000018c
+305000	00000190
+315000	00000194
+325000	00000198
+335000	0000019c
+345000	000001a0
+355000	000001a4
+365000	000001a8
+375000	000001ac
+385000	000001b0
+395000	000001b4
+405000	000001b8
+415000	000001bc
+425000	000001c0
+435000	000001c4
+445000	000001c8
+455000	000001cc
+465000	000001d0
+475000	000001d4
+485000	000001d8
+495000	000001dc
+505000	000001e0
+515000	000001e4
+$finish called at time : 520 ns : File "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/tb/tb_mips.v" Line 36
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_MIPS_Core_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1305.621 ; gain = 19.238
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 19 13:18:50 2025...

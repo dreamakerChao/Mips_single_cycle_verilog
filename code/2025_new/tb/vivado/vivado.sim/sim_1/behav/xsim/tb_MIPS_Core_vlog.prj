@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../" \
+"../../../../../../ALU.v" \
+"../../../../../../Branch_unit.v" \
+"../../../../../../Control_unit.v" \
+"../../../../../../Data_memory.v" \
+"../../../../../../Inst_merory.v" \
+"../../../../../../MIPS_Core.v" \
+"../../../../../../Regfile.v" \
+"../../../../../../Sign_extend.v" \
+"../../../../../tb_mips.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

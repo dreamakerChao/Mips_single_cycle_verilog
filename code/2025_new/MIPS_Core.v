@@ -36,11 +36,12 @@ module MIPS_Core (
 
     // decode control signals
     wire [24:0] control;
-    // control = {HI_WRITE, HI_READ, LO_WRITE, LO_READ, ifunsigned, ... ALUOP, SHIFTV, DATA_TYPE}
-    Controller controller (
+    // control = {HI_WRITE, HI_READ, LO_WRITE, LO_READ, ifunsigned, ... ALUOP, SHIFTV, DATA_TYPE} 
+    Control_unit controller(
         .opcode(opcode),
         .funct(funct),
-        .control(control)
+        .rt(rt),
+        .control_word(control)
     );
 
     assign ifunsigned = control[`CTRL_IFUNSIGNED];
@@ -62,9 +63,9 @@ module MIPS_Core (
         .rs_addr(rs),
         .rt_addr(rt),
         .rd_addr(control[`CTRL_REGDST] ? rd : rt),
-        .rd_data(lo_val),
-        .hi_data_in(alu_result[63:32]),
         .lo_data_in(alu_result[31:0]),
+        .hi_data_in(alu_result[63:32]),
+        
         .rs_data(rs_val),
         .rt_data(rt_val),
         .hi_data_out(hi_val),
@@ -86,7 +87,6 @@ module MIPS_Core (
         .B(alu_in_b),
         .shmt(shmt),
         .sv(sv),
-        .zero(zero_flag),
         .Result(alu_result)
     );
 
