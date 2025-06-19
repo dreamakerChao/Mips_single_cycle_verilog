@@ -3,7 +3,7 @@ module Inst_memory #(
 )
 (
     input wire clk,
-    input wire resetpc,
+    input wire reset,
     input wire [$clog2(INST_DEPTH)-1:0] addr, // word-address (PC[31:2])
     output reg [31:0] inst
 );
@@ -20,7 +20,7 @@ module Inst_memory #(
     end
 
     always @(posedge clk) begin
-        if (resetpc)
+        if (reset)
             inst <= 32'd0;
         else
             inst <= inst_array[addr];

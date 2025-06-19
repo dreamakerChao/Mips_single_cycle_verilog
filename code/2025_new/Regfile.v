@@ -1,36 +1,34 @@
 module Regfile(
     input  wire        clk,
     input  wire        rst,
-    input  wire        RegWrite,          // General reg write enable
-    input  wire        HiWrite,           // HI register write enable
-    input  wire        LoWrite,           // LO register write enable
-    input  wire [4:0]  rs_addr,           // Read register 1 address
-    input  wire [4:0]  rt_addr,           // Read register 2 address
-    input  wire [4:0]  rd_addr,           // Write register address
-    input  wire [31:0] rd_data,           // Write data
-    input  wire [31:0] hi_data_in,        // Write data to HI
-    input  wire [31:0] lo_data_in,        // Write data to LO
-    output wire [31:0] rs_data,           // Read data 1
-    output wire [31:0] rt_data,           // Read data 2
-    output wire [31:0] hi_data_out,       // HI output
-    output wire [31:0] lo_data_out        // LO output
+    input  wire        RegWrite,          // Enable writing to general-purpose register
+    input  wire        HiWrite,           // Enable writing to HI
+    input  wire        LoWrite,           // Enable writing to LO
+    input  wire [4:0]  rs_addr,           // Read address for rs
+    input  wire [4:0]  rt_addr,           // Read address for rt
+    input  wire [4:0]  rd_addr,           // Write address for rd
+    input  wire [31:0] lo_data_in,        // Unified ALU output lower 32-bit (ALU_RESULT[31:0])
+    input  wire [31:0] hi_data_in,        // ALU output upper 32-bit (ALU_RESULT[63:32])
+    output wire [31:0] rs_data,           // Output of rs register
+    output wire [31:0] rt_data,           // Output of rt register
+    output wire [31:0] hi_data_out,       // Output of HI
+    output wire [31:0] lo_data_out        // Output of LO
 );
 
-    // General-purpose registers (excluding $zero)
-    reg [31:0] reg_array [31:1];  // note: $0 is not physically stored
+    // General-purpose register file (excluding $zero)
+    reg [31:0] reg_array [31:1];  // $1 ~ $31
+    reg [31:0] hi;                // HI special register
+    reg [31:0] lo;                // LO special register
 
-    // HI/LO special registers
-    reg [31:0] hi;
-    reg [31:0] lo;
-
-    // Combinational read
+    // Combinational read ports
     assign rs_data = (rs_addr == 5'd0) ? 32'd0 : reg_array[rs_addr];
     assign rt_data = (rt_addr == 5'd0) ? 32'd0 : reg_array[rt_addr];
 
+    // HI/LO read output
     assign hi_data_out = hi;
     assign lo_data_out = lo;
 
-    // Sequential logic
+    // Sequential write logic
     integer i;
     always @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -39,9 +37,11 @@ module Regfile(
             hi <= 32'd0;
             lo <= 32'd0;
         end else begin
+            // Write to general-purpose register using lo_data_in
             if (RegWrite && rd_addr != 5'd0)
-                reg_array[rd_addr] <= rd_data;
+                reg_array[rd_addr] <= lo_data_in;
 
+            // Write to HI/LO if enabled
             if (HiWrite)
                 hi <= hi_data_in;
             if (LoWrite)

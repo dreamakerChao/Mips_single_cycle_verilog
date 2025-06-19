@@ -9,7 +9,6 @@ module ALU #(
     input  wire [4:0]  shmt,
     input  wire        sv, // shift source: 0=shamt, 1=rs
 
-    output reg         zero,
     output reg [63:0]  Result
 );
 
@@ -29,14 +28,11 @@ module ALU #(
             `ALU_OR:   Result = {32'd0, A | B};
             `ALU_XOR:  Result = {32'd0, A ^ B};
             `ALU_NOR:  Result = {32'd0, ~(A | B)};
+            
             `ALU_ADD:  Result = ifunsigned ? {32'd0, A + B} : {32'd0, As + Bs};
             `ALU_SUB:  Result = ifunsigned ? {32'd0, A - B} : {32'd0, As - Bs};
 
-            `ALU_EQ:   Result = {63'd0, ~(A == B)};
-            `ALU_GT:   Result = {63'd0, ifunsigned ? ~(A > B)  : ~(As > Bs)}; // zero means true
             `ALU_LT:   Result = {63'd0, ifunsigned ? ~(A < B)  : ~(As < Bs)};
-            `ALU_GE:   Result = {63'd0, ifunsigned ? ~(A >= B) : ~(As >= Bs)};
-            `ALU_LE:   Result = {63'd0, ifunsigned ? ~(A <= B) : ~(As <= Bs)};
 
             `ALU_SLL:  Result = {32'd0, A << shift_amt};
             `ALU_SRL:  Result = {32'd0, A >> shift_amt};
@@ -48,7 +44,6 @@ module ALU #(
             default:   Result = 64'd0;
         endcase
 
-        zero = (Result == 64'd0);
     end
 
 endmodule

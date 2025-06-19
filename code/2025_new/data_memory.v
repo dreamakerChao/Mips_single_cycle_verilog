@@ -1,5 +1,4 @@
 module Data_memory #(
-    // 1 KiB = 1024 bytes
     parameter MEM_BYTES = 1024
 )(
     input  wire         clk,
@@ -7,41 +6,35 @@ module Data_memory #(
     input  wire [31:0]  write_data,
     input  wire         MemRead,
     input  wire         MemWrite,
-    input  wire [1:0]   data_type,   // 0:word  1:half  2:byte
+    input  wire         ifunsigned,  // 1: zero-extend, 0: sign-extend
+    input  wire [2:0]   data_type,   // see define
+    input  wire [31:0]  rt_val,      // for LWL/LWR
     output reg  [31:0]  data_out
 );
 
-    // -------------------------------------------------------------------------
-    // 1 KiB single-port BRAM, byte-wide
-    // -------------------------------------------------------------------------
     (* ram_style = "block" *)
     reg [7:0] mem [0:MEM_BYTES-1];
 
-    // optional: load initial contents from hex file
     initial begin
         integer i;
-        // zero-clear entire BRAM
-        // for (i = 0; i < MEM_BYTES; i = i + 1)
-        //     mem[i] = 8'd0;
-
-        $readmemh("data_init.mem", mem);
+        for (i = 0; i < MEM_BYTES; i = i + 1)
+            mem[i] = 8'd0;
     end
 
-    // -------------------------------------------------------------------------
-    // synchronous read + write (single clock edge)
-    // -------------------------------------------------------------------------
+    wire [1:0] align = addr[1:0]; // for LWL/LWR
+
     always @(posedge clk) begin
-        // --------------- write ---------------
+        // ---------------- write ----------------
         if (MemWrite) begin
             case (data_type)
-                2'd2: begin                       // byte
+                `DATA_TYPE_BYTE: begin
                     mem[addr] <= write_data[7:0];
                 end
-                2'd1: begin                       // half-word
+                `DATA_TYPE_HALF: begin
                     mem[addr]     <= write_data[7:0];
                     mem[addr + 1] <= write_data[15:8];
                 end
-                default: begin                    // word
+                default: begin // word
                     mem[addr]     <= write_data[7:0];
                     mem[addr + 1] <= write_data[15:8];
                     mem[addr + 2] <= write_data[23:16];
@@ -50,15 +43,42 @@ module Data_memory #(
             endcase
         end
 
-        // --------------- read ---------------
+        // ---------------- read ----------------
         if (MemRead) begin
-            data_out <= {mem[addr + 3],
-                         mem[addr + 2],
-                         mem[addr + 1],
-                         mem[addr    ]};
-        end
-        else begin
-            data_out <= 32'h0;
+            case (data_type)
+                `DATA_TYPE_WORD: begin
+                    data_out <= {mem[addr + 3], mem[addr + 2], mem[addr + 1], mem[addr]};
+                end
+                `DATA_TYPE_HALF: begin
+                    data_out <= ifunsigned ?
+                        {16'd0, mem[addr + 1], mem[addr]} :
+                        {{16{mem[addr + 1][7]}}, mem[addr + 1], mem[addr]};
+                end
+                `DATA_TYPE_BYTE: begin
+                    data_out <= ifunsigned ?
+                        {24'd0, mem[addr]} :
+                        {{24{mem[addr][7]}}, mem[addr]};
+                end
+                `DATA_TYPE_WORDL: begin
+                    case (align)
+                        2'b00: data_out <= {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]};
+                        2'b01: data_out <= {mem[addr+2], mem[addr+1], mem[addr], rt_val[7:0]};
+                        2'b10: data_out <= {mem[addr+1], mem[addr], rt_val[15:0]};
+                        2'b11: data_out <= {mem[addr], rt_val[23:0]};
+                    endcase
+                end
+                `DATA_TYPE_WORDR: begin
+                    case (align)
+                        2'b00: data_out <= {rt_val[31:8], mem[addr]};
+                        2'b01: data_out <= {rt_val[31:16], mem[addr+1], mem[addr]};
+                        2'b10: data_out <= {rt_val[31:24], mem[addr+2], mem[addr+1], mem[addr]};
+                        2'b11: data_out <= {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]};
+                    endcase
+                end
+                default: data_out <= 32'd0;
+            endcase
+        end else begin
+            data_out <= 32'd0;
         end
     end
 
