@@ -4,17 +4,17 @@
 // -----------------------------------------------------------------------------
 // Bit positions for control word [24:0]
 // -----------------------------------------------------------------------------
-`define CTRL_HI_WRITE    25
-`define CTRL_HI_READ     24
-`define CTRL_LO_WRITE    23
-`define CTRL_LO_READ     22
-`define CTRL_IFUNSIGNED  21
-`define CTRL_REGDST      20
-`define CTRL_ALUSRC      19
-`define CTRL_MEMTOREG    18
-`define CTRL_REGWRITE    17
-`define CTRL_MEMREAD     16
-`define CTRL_MEMWRITE    15
+`define CTRL_HI_WRITE    24
+`define CTRL_HI_READ     23
+`define CTRL_LO_WRITE    22
+`define CTRL_LO_READ     21
+`define CTRL_IFUNSIGNED  20
+`define CTRL_REGDST      19
+`define CTRL_ALUSRC      18
+`define CTRL_MEMTOREG    17
+`define CTRL_REGWRITE    16
+`define CTRL_MEMREAD     15
+`define CTRL_MEMWRITE    14
 `define CTRL_BRANCH      13:11
 `define CTRL_JUMP        10
 `define CTRL_LINKED       9

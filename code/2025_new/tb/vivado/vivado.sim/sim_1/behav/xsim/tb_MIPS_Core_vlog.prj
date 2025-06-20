@@ -8,6 +8,7 @@ verilog xil_defaultlib  --include "../../../../../../" \
 "../../../../../../MIPS_Core.v" \
 "../../../../../../Regfile.v" \
 "../../../../../../Sign_extend.v" \
+"../../../../../../Stage_control.v" \
 "../../../../../tb_mips.v" \
 
 # compile glbl module

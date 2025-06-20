@@ -1,8 +1,8 @@
 module Data_memory #(
-    parameter MEM_BYTES = 1024
+    parameter MEM_BYTES = 8192  // 8KB memory
 )(
     input  wire         clk,
-    input  wire [9:0]   addr,        // byte address
+    input  wire [12:0]   addr,        // byte address
     input  wire [31:0]  write_data,
     input  wire         MemRead,
     input  wire         MemWrite,

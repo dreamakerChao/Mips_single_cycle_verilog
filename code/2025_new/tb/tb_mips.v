@@ -36,7 +36,7 @@ module tb_MIPS_Core;
         // Step 2: Wait for syscall
         forever begin
             @(posedge clk);
-            if (dut.inst == 32'h0000000C) begin // Detect syscall
+            if (inst == 32'h0000000C) begin // Detect syscall
                 $display("[SYSCALL] Time: %0t | PC: %h | $v0: %d", $time, PC, dut.v0);
                 $finish;
             end
@@ -45,7 +45,7 @@ module tb_MIPS_Core;
 
     // Optional timeout limit: 50000 time units
     initial begin
-        #5000;
+        #500000;
         $display("[TIMEOUT] Simulation reached 50000 time units without syscall.");
         $finish;
     end

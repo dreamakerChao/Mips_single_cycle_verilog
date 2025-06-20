@@ -1,5 +1,5 @@
 module Inst_memory #(
-    parameter INST_DEPTH = 256   // 1KB memory, 256 words, 32 bits each
+    parameter INST_DEPTH = 1024
 )
 (
     input wire clk,

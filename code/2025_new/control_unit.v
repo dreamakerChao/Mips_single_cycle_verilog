@@ -5,7 +5,7 @@ module Control_unit (
     input  wire [5:0] opcode,
     input  wire [5:0] funct,
     input  wire [4:0] rt,
-    output reg  [21:0] control_word
+    output reg  [24:0] control_word
 );
 
     always @(*) begin
@@ -40,7 +40,7 @@ module Control_unit (
                 case (rt)
                     `RT_BLTZ: control_word = `CTRL_BLTZ;
                     `RT_BGEZ: control_word = `CTRL_BGEZ;
-                    default:  control_word = 22'd0;
+                    default:  control_word = 25'd0;
                 endcase
             end
             `OP_SPECIAL: begin
@@ -71,10 +71,10 @@ module Control_unit (
                     `FN_NOR:   control_word = `CTRL_NOR;
                     `FN_SLT:   control_word = `CTRL_SLT;
                     `FN_SLTU:  control_word = `CTRL_SLTU;
-                    default:   control_word = 22'd0;
+                    default:   control_word = 25'd0;
                 endcase
             end
-            default: control_word = 22'd0;
+            default: control_word = 25'd0;
         endcase
     end
 endmodule

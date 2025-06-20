@@ -9,6 +9,21 @@ module MIPS_Core (
     output wire [31:0] inst_out,  // Current instruction
     output wire [31:0] v0     // Register $v0
 );
+    // clock control
+    wire clk_imm;
+    wire clk_dmm;
+    wire clk_reg;
+    wire clk_wb;
+
+    Stage_control Stage_C(
+        .clk(clk),
+        .rst(rst),
+        .clk_imm(clk_imm),   // for instruction memory
+        .clk_dmm(clk_dmm),   // for data memory
+        .clk_reg(clk_reg),   // for register file
+        .clk_wb(clk_wb) 
+    );
+
     // ---------------------------- IF Stage ----------------------------
     reg [31:0] pc_reg;
     wire [31:0] next_pc;
@@ -18,9 +33,9 @@ module MIPS_Core (
     assign PC = pc_reg;
 
     Inst_memory imem (
-        .clk(clk),
+        .clk(clk_imm),
         .reset(rst),
-        .addr(pc_reg[31:2]),
+        .addr(pc_reg[11:2]),
         .inst(inst)
     );
 
@@ -58,7 +73,7 @@ module MIPS_Core (
     wire [31:0] rs_val, rt_val, hi_val, lo_val;
 
     Regfile regfile (
-        .clk(clk),
+        .clk(clk_reg),
         .rst(rst),
         .RegWrite(control[`CTRL_REGWRITE]),
         .HiWrite(control[`CTRL_HI_WRITE]),
@@ -98,8 +113,8 @@ module MIPS_Core (
     wire [31:0] data_mem_out;
 
     Data_memory dmem (
-        .clk(clk),
-        .addr(alu_result[9:0]),
+        .clk(clk_dmm),
+        .addr(alu_result[12:0]),
         .write_data(rt_val),
         .MemRead(control[`CTRL_MEMREAD]),
         .MemWrite(control[`CTRL_MEMWRITE]),
@@ -130,9 +145,9 @@ module MIPS_Core (
     assign next_pc = control[`CTRL_RETURN]  ? pc_return :
                      control[`CTRL_JUMP]    ? pc_jump   :
                      do_branch              ? pc_branch :
-                                              pc_reg + 4;
+                                              pc_reg + 32'd4;
 
-    always @(posedge clk or posedge rst) begin
+    always @(posedge clk_wb or posedge rst) begin
         if (rst)
             pc_reg <= 32'd0;
         else
