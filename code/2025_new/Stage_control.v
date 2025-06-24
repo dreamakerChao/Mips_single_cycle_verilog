@@ -16,6 +16,7 @@ module Stage_control (
     localparam STAGE_EX   = 3'd3;
     localparam STAGE_MEM  = 3'd4;
     localparam STAGE_WB   = 3'd5;
+    localparam STAGE_PC   = 3'd6;
 
     // State register
     always @(posedge clk or posedge rst) begin
@@ -33,7 +34,8 @@ module Stage_control (
             STAGE_ID:  next_stage = STAGE_EX;
             STAGE_EX:  next_stage = STAGE_MEM;
             STAGE_MEM: next_stage = STAGE_WB;
-            STAGE_WB:  next_stage = STAGE_IF;
+            STAGE_WB:  next_stage = STAGE_PC;
+            STAGE_PC:  next_stage = STAGE_IF;
             default:   next_stage = STAGE_NOP;
         endcase
     end
@@ -49,7 +51,8 @@ module Stage_control (
         case (stage)
             STAGE_IF:  clk_imm = 1'b1;
             STAGE_MEM: clk_dmm = 1'b1;
-            STAGE_WB:  begin clk_reg = 1'b1; clk_wb = 1'b1; end
+            STAGE_WB:  clk_reg = 1'b1;
+            STAGE_PC:  clk_wb  = 1'b1;
         endcase
     end
 

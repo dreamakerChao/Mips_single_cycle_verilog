@@ -32,7 +32,7 @@ module ALU #(
             `ALU_ADD:  Result = ifunsigned ? {32'd0, A + B} : {32'd0, As + Bs};
             `ALU_SUB:  Result = ifunsigned ? {32'd0, A - B} : {32'd0, As - Bs};
 
-            `ALU_LT:   Result = {63'd0, ifunsigned ? ~(A < B)  : ~(As < Bs)};
+            `ALU_LT:   Result = {63'd0, ifunsigned ? (A < B)  : (As < Bs)};
 
             `ALU_SLL:  Result = {32'd0, A << shift_amt};
             `ALU_SRL:  Result = {32'd0, A >> shift_amt};

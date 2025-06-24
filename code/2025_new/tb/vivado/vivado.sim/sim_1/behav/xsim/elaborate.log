@@ -6,36 +6,4 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v" Line 4. Module MIPS_Core doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Stage_control.v" Line 1. Module Stage_control doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v" Line 1. Module Inst_memory doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 4. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v" Line 1. Module Sign_extend doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v" Line 1. Module Regfile doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" Line 1. Module Data_memory doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" Line 2. Module Branch_unit doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/MIPS_Core.v" Line 4. Module MIPS_Core doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Stage_control.v" Line 1. Module Stage_control doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Inst_merory.v" Line 1. Module Inst_memory doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Control_unit.v" Line 4. Module Control_unit doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Sign_extend.v" Line 1. Module Sign_extend doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Regfile.v" Line 1. Module Regfile doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Data_memory.v" Line 1. Module Data_memory doesn't have a timescale but at least one module in design has a timescale.
-WARNING: [XSIM 43-4099] "D:/2025_summer/Mips_single_cycle_verilog/code/2025_new/Branch_unit.v" Line 2. Module Branch_unit doesn't have a timescale but at least one module in design has a timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.Stage_control
-Compiling module xil_defaultlib.Inst_memory
-Compiling module xil_defaultlib.Control_unit
-Compiling module xil_defaultlib.Sign_extend
-Compiling module xil_defaultlib.Regfile
-Compiling module xil_defaultlib.ALU
-Compiling module xil_defaultlib.Data_memory
-Compiling module xil_defaultlib.Branch_unit
-Compiling module xil_defaultlib.MIPS_Core
-Compiling module xil_defaultlib.tb_MIPS_Core
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_MIPS_Core_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

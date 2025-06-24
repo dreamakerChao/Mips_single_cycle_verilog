@@ -1,5 +1,5 @@
 module Inst_memory #(
-    parameter INST_DEPTH = 1024
+    parameter INST_DEPTH = 1024 // 1KB instruction memory
 )
 (
     input wire clk,

@@ -80,8 +80,8 @@ module MIPS_Core (
         .LoWrite(control[`CTRL_LO_WRITE]),
         .rs_addr(rs),
         .rt_addr(rt),
-        .rd_addr(control[`CTRL_REGDST] ? rd : rt),
-        .lo_data_in(alu_result[31:0]),
+        .rd_addr(control[`CTRL_LINKED ] ? 5'd31 : (control[`CTRL_REGDST] ? rd : rt)),
+        .lo_data_in(control[`CTRL_LINKED] ? pc_reg + 32'd4 :control[`CTRL_MEMTOREG]? data_mem_out :alu_result[31:0]),
         .hi_data_in(alu_result[63:32]),
         
         .rs_data(rs_val),
@@ -114,7 +114,7 @@ module MIPS_Core (
 
     Data_memory dmem (
         .clk(clk_dmm),
-        .addr(alu_result[12:0]),
+        .addr(alu_result[13:0]),
         .write_data(rt_val),
         .MemRead(control[`CTRL_MEMREAD]),
         .MemWrite(control[`CTRL_MEMWRITE]),
@@ -123,6 +123,14 @@ module MIPS_Core (
         .rt_val(rt_val),
         .data_out(data_mem_out)
     );
+    // for debug
+    wire [13:0] mem_addr;
+    wire [31:0] mem_wdata;  
+    wire [31:0] mem_rdata;
+    
+    assign mem_addr = alu_result[13:0];
+    assign mem_wdata = rt_val;
+    assign mem_rdata = data_mem_out;
 
     // ---------------------------- WB Stage ----------------------------
     wire [31:0] write_back_data = control[`CTRL_MEMTOREG] ? data_mem_out : alu_result[31:0];

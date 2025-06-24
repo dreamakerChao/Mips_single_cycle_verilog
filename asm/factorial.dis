@@ -1,0 +1,70 @@
+
+/tmp/tmp.9v0hghY8KM/app_be.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:	27bdffc8 	addiu	sp,sp,-56
+   4:	afbf0034 	sw	ra,52(sp)
+   8:	afbe0030 	sw	s8,48(sp)
+   c:	03a0f025 	move	s8,sp
+  10:	24020003 	li	v0,3
+  14:	afc20020 	sw	v0,32(s8)
+  18:	24020004 	li	v0,4
+  1c:	afc20024 	sw	v0,36(s8)
+  20:	8fc30020 	lw	v1,32(s8)
+  24:	8fc20024 	lw	v0,36(s8)
+  28:	00621021 	addu	v0,v1,v0
+  2c:	afc20028 	sw	v0,40(s8)
+  30:	0c000033 	jal	0xcc
+  34:	8fc40028 	lw	a0,40(s8)
+  38:	afc20018 	sw	v0,24(s8)
+  3c:	8fc20018 	lw	v0,24(s8)
+  40:	28420015 	slti	v0,v0,21
+  44:	14400004 	bnez	v0,0x58
+  48:	00000000 	nop
+  4c:	8fc20018 	lw	v0,24(s8)
+  50:	2442000a 	addiu	v0,v0,10
+  54:	afc20018 	sw	v0,24(s8)
+  58:	10000007 	b	0x78
+  5c:	afc0001c 	sw	zero,28(s8)
+  60:	8fc20018 	lw	v0,24(s8)
+  64:	24420001 	addiu	v0,v0,1
+  68:	afc20018 	sw	v0,24(s8)
+  6c:	8fc2001c 	lw	v0,28(s8)
+  70:	24420001 	addiu	v0,v0,1
+  74:	afc2001c 	sw	v0,28(s8)
+  78:	8fc2001c 	lw	v0,28(s8)
+  7c:	28420005 	slti	v0,v0,5
+  80:	1440fff7 	bnez	v0,0x60
+  84:	00000000 	nop
+  88:	10000004 	b	0x9c
+  8c:	00000000 	nop
+  90:	8fc20018 	lw	v0,24(s8)
+  94:	24420001 	addiu	v0,v0,1
+  98:	afc20018 	sw	v0,24(s8)
+  9c:	8fc20018 	lw	v0,24(s8)
+  a0:	28420046 	slti	v0,v0,70
+  a4:	1440fffa 	bnez	v0,0x90
+  a8:	00000000 	nop
+  ac:	8fc20018 	lw	v0,24(s8)
+  b0:	00401825 	move	v1,v0
+  b4:	00001025 	move	v0,zero
+  b8:	03c0e825 	move	sp,s8
+  bc:	8fbf0034 	lw	ra,52(sp)
+  c0:	8fbe0030 	lw	s8,48(sp)
+  c4:	03e00008 	jr	ra
+  c8:	27bd0038 	addiu	sp,sp,56
+  cc:	27bdfff8 	addiu	sp,sp,-8
+  d0:	afbe0004 	sw	s8,4(sp)
+  d4:	03a0f025 	move	s8,sp
+  d8:	afc40008 	sw	a0,8(s8)
+  dc:	8fc20008 	lw	v0,8(s8)
+  e0:	70421002 	mul	v0,v0,v0
+  e4:	03c0e825 	move	sp,s8
+  e8:	8fbe0004 	lw	s8,4(sp)
+  ec:	27bd0008 	addiu	sp,sp,8
+  f0:	03e00008 	jr	ra
+  f4:	00000000 	nop
+	...

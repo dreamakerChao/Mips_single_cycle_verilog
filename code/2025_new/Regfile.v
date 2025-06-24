@@ -35,8 +35,13 @@ module Regfile(
     initial begin : init_mem
         integer i;
         // Initialize general-purpose registers to 0
-        for (i = 1; i < 32; i = i + 1)
-            reg_array[i] = 32'd0;
+        for (i = 1; i < 32; i = i + 1)begin
+            if(i== 29 || i==30) // $sp or $fp
+                reg_array[i] = 32'h0000_00CC;  // $sp 
+            else
+                reg_array[i] <= 32'd0;
+        end
+
         hi = 32'd0;
         lo = 32'd0;
     end
@@ -46,8 +51,12 @@ module Regfile(
     integer i;
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            for (i = 1; i < 32; i = i + 1)
-                reg_array[i] <= 32'd0;
+            for (i = 1; i < 32; i = i + 1)begin
+                if(i== 29 || i==30) // $sp or $fp
+                    reg_array[i] = 32'h0000_00CC;  // $sp 
+                else
+                    reg_array[i] <= 32'd0;
+            end
             hi <= 32'd0;
             lo <= 32'd0;
         end else begin
@@ -64,5 +73,5 @@ module Regfile(
     end
 
 
-    assign test_output = reg_array[2]; 
+    assign test_output = reg_array[3]; 
 endmodule

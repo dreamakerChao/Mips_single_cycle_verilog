@@ -8,9 +8,10 @@
 # Output:
 #   output_basename.s     ── MIPS32 assembly
 #   output_basename.mem   ── Big-endian memory file for Verilog ($readmemh)
+#   output_basename.dis   ── Disassembly of generated binary for visual comparison with .s
 #
 # Requirements:
-#   mipsel-linux-gnu-gcc / as / ld / objcopy
+#   mipsel-linux-gnu-gcc / as / ld / objcopy / objdump
 #   xxd
 # ==============================================================================
 
@@ -38,12 +39,14 @@ BASE_ADDR="${3:-0x0}"
 
 SRC_S="${OUT_BASE}.s"
 OUT_MEM="${OUT_BASE}.mem"
+OUT_DIS="${OUT_BASE}.dis"
 
 # Use LITTLE-endian toolchain and convert to BIG-endian output
 GCC=mipsel-linux-gnu-gcc
 AS=mipsel-linux-gnu-as
 LD=mipsel-linux-gnu-ld
 OBJCOPY=mipsel-linux-gnu-objcopy
+OBJDUMP=mipsel-linux-gnu-objdump
 
 TMPDIR="$(mktemp -d)"
 trap 'rm -rf "$TMPDIR"' EXIT
@@ -55,11 +58,11 @@ $GCC -nostdlib -static -march=mips32 -mfp32 -O0 -S "$SRC_C" -o "$SRC_S"
 $AS -march=mips32 -o "$TMPDIR/app.o" "$SRC_S"
 
 # Step 3: Link (set base address)
-$LD -Ttext "$BASE_ADDR" -e _start -o "$TMPDIR/app.elf" "$TMPDIR/app.o"
+$LD -Ttext "$BASE_ADDR" -e main -o "$TMPDIR/app.elf" "$TMPDIR/app.o"
 
 # Step 4: Convert to Big-endian 32-bit word stream
 $OBJCOPY -O binary --reverse-bytes=4 \
-         -j .text -j .data -j .rodata \
+         -j .text -j .data -j .rodata -j .init -j .MIPS.stubs \
          "$TMPDIR/app.elf" "$TMPDIR/app_be.bin"
 
 # Step 5: Optional padding
@@ -71,6 +74,10 @@ fi
 # Step 6: Dump to .mem (1 line per 32-bit word, big-endian)
 xxd -p -c 4 "$TMPDIR/app_be.bin" > "$OUT_MEM"
 
+# Step 7: Generate disassembly of raw binary for checking
+$OBJDUMP -D -bbinary -m mips:isa32 -EB "$TMPDIR/app_be.bin" > "$OUT_DIS"
+
 echo "[DONE] Outputs:"
-echo "  - Assembly: $SRC_S"
-echo "  - Memory:   $OUT_MEM"
+echo "  - Assembly:     $SRC_S"
+echo "  - Memory:       $OUT_MEM"
+echo "  - Disassembly:  $OUT_DIS"

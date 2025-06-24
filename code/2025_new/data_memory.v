@@ -1,8 +1,8 @@
 module Data_memory #(
-    parameter MEM_BYTES = 8192  // 8KB memory
+    parameter MEM_BYTES =  16384  // 16KB
 )(
     input  wire         clk,
-    input  wire [12:0]   addr,        // byte address
+    input  wire [13:0]   addr,        // byte address
     input  wire [31:0]  write_data,
     input  wire         MemRead,
     input  wire         MemWrite,
@@ -31,14 +31,14 @@ module Data_memory #(
                     mem[addr] <= write_data[7:0];
                 end
                 `DATA_TYPE_HALF: begin
-                    mem[addr]     <= write_data[7:0];
-                    mem[addr + 1] <= write_data[15:8];
+                    mem[addr]     <= write_data[15:8];  // MSB
+                    mem[addr + 1] <= write_data[7:0];   // LSB
                 end
                 default: begin // word
-                    mem[addr]     <= write_data[7:0];
-                    mem[addr + 1] <= write_data[15:8];
-                    mem[addr + 2] <= write_data[23:16];
-                    mem[addr + 3] <= write_data[31:24];
+                    mem[addr]     <= write_data[31:24];  // MSB
+                    mem[addr + 1] <= write_data[23:16];
+                    mem[addr + 2] <= write_data[15:8];
+                    mem[addr + 3] <= write_data[7:0];    // LSB
                 end
             endcase
         end
@@ -47,12 +47,12 @@ module Data_memory #(
         if (MemRead) begin
             case (data_type)
                 `DATA_TYPE_WORD: begin
-                    data_out <= {mem[addr + 3], mem[addr + 2], mem[addr + 1], mem[addr]};
+                    data_out <= {mem[addr], mem[addr + 1], mem[addr + 2], mem[addr + 3]};
                 end
                 `DATA_TYPE_HALF: begin
                     data_out <= ifunsigned ?
-                        {16'd0, mem[addr + 1], mem[addr]} :
-                        {{16{mem[addr + 1][7]}}, mem[addr + 1], mem[addr]};
+                        {16'd0, mem[addr], mem[addr + 1]} :
+                        {{16{mem[addr][7]}}, mem[addr], mem[addr + 1]};
                 end
                 `DATA_TYPE_BYTE: begin
                     data_out <= ifunsigned ?
@@ -61,25 +61,26 @@ module Data_memory #(
                 end
                 `DATA_TYPE_WORDL: begin
                     case (align)
-                        2'b00: data_out <= {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]};
-                        2'b01: data_out <= {mem[addr+2], mem[addr+1], mem[addr], rt_val[7:0]};
-                        2'b10: data_out <= {mem[addr+1], mem[addr], rt_val[15:0]};
-                        2'b11: data_out <= {mem[addr], rt_val[23:0]};
+                        2'b00: data_out <= {mem[addr], mem[addr + 1], mem[addr + 2], mem[addr + 3]};
+                        2'b01: data_out <= {rt_val[7:0], mem[addr], mem[addr + 1], mem[addr + 2]};
+                        2'b10: data_out <= {rt_val[15:0], mem[addr], mem[addr + 1]};
+                        2'b11: data_out <= {rt_val[23:0], mem[addr]};
                     endcase
                 end
                 `DATA_TYPE_WORDR: begin
                     case (align)
-                        2'b00: data_out <= {rt_val[31:8], mem[addr]};
-                        2'b01: data_out <= {rt_val[31:16], mem[addr+1], mem[addr]};
-                        2'b10: data_out <= {rt_val[31:24], mem[addr+2], mem[addr+1], mem[addr]};
-                        2'b11: data_out <= {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]};
+                        2'b00: data_out <= {mem[addr], rt_val[31:8]};
+                        2'b01: data_out <= {mem[addr], mem[addr + 1], rt_val[31:16]};
+                        2'b10: data_out <= {mem[addr], mem[addr + 1], mem[addr + 2], rt_val[31:24]};
+                        2'b11: data_out <= {mem[addr], mem[addr + 1], mem[addr + 2], mem[addr + 3]};
                     endcase
                 end
                 default: data_out <= 32'd0;
             endcase
-        end else begin
-            data_out <= 32'd0;
         end
+
+        data_out <= 32'd0;
+
     end
 
 endmodule
